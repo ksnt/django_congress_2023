@@ -1,0 +1,21 @@
+<!-- myapp/templates/chatbot.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Chatbot Image Generator</title>
+</head>
+<body>
+    <h1>Chatbot Image Generator</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="prompt">どんな画像が欲しいですか？</label>
+        <input type="text" name="prompt" id="prompt" required>
+        <input type="submit" value="生成">
+    </form>
+    {% if image_url %}
+    <img src="{{ image_url }}" alt="Generated Image">
+    {% endif %}
+</body>
+</html>
